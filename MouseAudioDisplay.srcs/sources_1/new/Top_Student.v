@@ -87,14 +87,6 @@ Oled_Display OledDisplay_u (    .clk(clock6p25MHz),
                                     .pmoden(JB[7])                
                                     );                    
 
-//Mouse Testing
-MouseTesting MouseTesting_u (  .basys3_clock(basys3_clock),
-                                .left_btn(left_btn),
-                                .right_btn(right_btn),
-                                .middle_btn(middle_btn),
-                                .led(led[15:13])
-                                );
-
 //change cursor using middle button                                           
 wire is_alternate_cursor;
 change_cursor change_cursor_indicator(  .mouse_middle_button(middle_btn),
@@ -108,8 +100,7 @@ wire [6:0] is_on_segment;
 check_cursor_on_segment check_cursor_on_segment_u (.clock25MHz(clock25MHz), 
                                                     .x_mouse_oled(x_mouse_oled), 
                                                     .y_mouse_oled(y_mouse_oled) , 
-                                                    .is_on_segment(is_on_segment),
-                                                    .led(led[6:0])
+                                                    .is_on_segment(is_on_segment)
                                                      );
    
 //use cursor to choose number        
